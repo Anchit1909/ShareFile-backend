@@ -41,4 +41,4 @@ const fileSchema = new schema<IFile>(
   }
 );
 
-export default mongoose.model<IFile>("File,", fileSchema);
+export default mongoose.model<IFile>("File", fileSchema);

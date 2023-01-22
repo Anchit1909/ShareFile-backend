@@ -29,7 +29,7 @@ router.post("/upload", upload.single("myFile"), async (req, res) => {
     const { originalname } = req.file;
     const { secure_url, bytes, format } = uploadedFile;
 
-    const file = new File({
+    const file = await File.create({
       filename: originalname,
       sizeInBytes: bytes,
       secure_url,
@@ -43,6 +43,23 @@ router.post("/upload", upload.single("myFile"), async (req, res) => {
   } catch (error: any) {
     console.log(error.message);
     res.status(500).json({ message: "Server Error" });
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const file = await File.findById(id);
+    if (!file) return res.status(404).json({ message: "File does not exist" });
+    const { filename, format, sizeInBytes } = file;
+    return res.status(200).json({
+      name: filename,
+      sizeInBytes: sizeInBytes,
+      format: format,
+      id: id,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "Server error" });
   }
 });
 
