@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev server.ts",
-    "build": "rm -rf dist && tsc",
-    "build:watch": "rm -rf dist && tsc -w",
-    "start": "node dist/src/index.js",
-    "start:dev": "tsc-watch --onSuccess 'node --inspect=0.0.0.0:5858 dist/src/index.js'"
+    "dev": "ts-node-dev --clear server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
