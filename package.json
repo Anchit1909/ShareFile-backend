@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev server.ts",
-    "build": "rimraf ./dist && tsc",
-    "start:dev": "npx nodemon",
-    "start": "npm run build && node dist/index.js"
-    
+    "build": "rm -rf dist && tsc",
+    "build:watch": "rm -rf dist && tsc -w",
+    "start": "node dist/src/index.js",
+    "start:dev": "tsc-watch --onSuccess 'node --inspect=0.0.0.0:5858 dist/src/index.js'"
   },
   "keywords": [],
   "author": "",
