@@ -1,5 +1,5 @@
 <a href="https://sharefile-frontend.vercel.app/">
-  <img alt="ShareMe - File Sharing App" src="/public/screenshot.png">
+  <img alt="ShareMe - File Sharing App" src="/images/screenshot.png">
     <h1 align="center">ShareMe</h1>
 </a>
 
